@@ -101,6 +101,12 @@ The setup also creates `backend/.env`, a secure session secret, and a random adm
 
 The SQLite database and session store are created automatically under `backend/data/`. They persist across server restarts and are intentionally excluded from the ZIP until runtime.
 
+## Deploying the website on Vercel
+
+The root `vercel.json` and `npm run build` create a static deployment with the public site at `/` and the admin page at `/admin/`. This fixes Vercel's “No entrypoint found” build error.
+
+This deployment only hosts the static pages. The Express API and SQLite database are not deployed by this Vercel build. Enquiries, reviews, and admin sign-in will not work on the deployed site until you host the API and persistent database separately, then point `API_BASE` in `frontend/script.js` and `API` in `admin/script.js` to that API and set the API's `FRONTEND_ORIGIN` to your Vercel domain.
+
 ## Admin dashboard
 
 Visit `http://localhost:5501/admin/` when serving the project root. Sign in with `ADMIN_USERNAME` and `ADMIN_PASSWORD` from `backend/.env`. The dashboard provides enquiry counts, search, status filters, detail view, click-to-call/email links, status changes and deletion. The Customer Reviews tab supports rating/status filters, approval, rejection and deletion. Only approved reviews are returned by the public API.

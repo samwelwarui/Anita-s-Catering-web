@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Full-stack catering website with inquiry management and moderated customer reviews.",
-  "scripts": {"start": "npm --prefix backend start", "dev": "npm --prefix backend run dev", "test": "npm --prefix backend test"},
+  "scripts": {"start": "npm --prefix backend start", "dev": "npm --prefix backend run dev", "test": "npm --prefix backend test", "build": "node scripts/build-vercel.js"},
   "engines": {"node": ">=20"}
 }
