@@ -1,0 +1,2 @@
+const router=require('express').Router();const c=require('../controllers/inquiryController');const {requireAuth,requireCsrf}=require('../middleware/authMiddleware');
+router.post('/',c.create);router.get('/',requireAuth,c.list);router.get('/stats',requireAuth,c.stats);router.get('/:id',requireAuth,c.get);router.patch('/:id',requireAuth,requireCsrf,c.update);router.delete('/:id',requireAuth,requireCsrf,c.remove);module.exports=router;

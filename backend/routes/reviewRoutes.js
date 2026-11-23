@@ -1,0 +1,2 @@
+const router=require('express').Router();const c=require('../controllers/reviewController');const {requireAuth,requireCsrf}=require('../middleware/authMiddleware');
+router.get('/',c.publicList);router.post('/',c.create);router.get('/admin',requireAuth,c.adminList);router.get('/:id',requireAuth,c.get);router.patch('/:id',requireAuth,requireCsrf,c.update);router.delete('/:id',requireAuth,requireCsrf,c.remove);module.exports=router;
